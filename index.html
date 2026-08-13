@@ -3,17 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - userdoomain</title>
+    <title>Evans - Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
         body {
             font-family: 'Inter', sans-serif;
             background: #0a0a0a;
@@ -53,9 +49,7 @@
             z-index: 1;
         }
 
-        .hero h1 span {
-            color: #00ff88;
-        }
+        .hero h1 span { color: #00ff88; }
 
         .hero p {
             font-size: 1.2rem;
@@ -75,22 +69,9 @@
             z-index: 1;
         }
 
-        .stat {
-            text-align: center;
-        }
-
-        .stat-number {
-            font-size: 3rem;
-            font-weight: 800;
-            color: #00ff88;
-        }
-
-        .stat-label {
-            font-size: 0.9rem;
-            color: #666;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .stat { text-align: center; }
+        .stat-number { font-size: 3rem; font-weight: 800; color: #00ff88; }
+        .stat-label { font-size: 0.9rem; color: #666; text-transform: uppercase; letter-spacing: 2px; }
 
         .portfolio {
             padding: 60px 40px;
@@ -105,9 +86,7 @@
             text-align: center;
         }
 
-        .section-title span {
-            color: #00ff88;
-        }
+        .section-title span { color: #00ff88; }
 
         .grid {
             display: grid;
@@ -121,6 +100,7 @@
             overflow: hidden;
             transition: all 0.3s ease;
             border: 1px solid #222;
+            cursor: pointer;
         }
 
         .card:hover {
@@ -136,22 +116,9 @@
             display: block;
         }
 
-        .card-content {
-            padding: 24px;
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-
-        .card-desc {
-            font-size: 0.9rem;
-            color: #888;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
+        .card-content { padding: 24px; }
+        .card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
+        .card-desc { font-size: 0.9rem; color: #888; margin-bottom: 20px; line-height: 1.6; }
 
         .card-tags {
             display: flex;
@@ -179,9 +146,7 @@
             transition: gap 0.3s ease;
         }
 
-        .card-link:hover {
-            gap: 12px;
-        }
+        .card-link:hover { gap: 12px; }
 
         .footer {
             text-align: center;
@@ -189,6 +154,110 @@
             color: #444;
             border-top: 1px solid #1a1a1a;
         }
+
+        /* Modal de Preview */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .modal.active { display: flex; }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 1200px;
+            margin-bottom: 20px;
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .modal-close:hover { color: #00ff88; }
+
+        .modal-gallery {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            width: 90%;
+            max-width: 1200px;
+            padding: 20px 0;
+            scroll-snap-type: x mandatory;
+        }
+
+        .modal-gallery::-webkit-scrollbar { height: 8px; }
+        .modal-gallery::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 4px; }
+        .modal-gallery::-webkit-scrollbar-thumb { background: #00ff88; border-radius: 4px; }
+
+        .modal-img {
+            min-width: 800px;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            scroll-snap-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .modal-img:hover { transform: scale(1.02); }
+
+        .modal-link {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #00ff88;
+            color: #0a0a0a;
+            padding: 14px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .modal-link:hover {
+            background: #00cc6a;
+            transform: scale(1.05);
+        }
+
+        .modal-dots {
+            display: flex;
+            gap: 8px;
+            margin-top: 20px;
+        }
+
+        .modal-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-dot.active { background: #00ff88; width: 30px; border-radius: 5px; }
 
         /* Chat de IA */
         .chat-toggle {
@@ -220,11 +289,7 @@
             box-shadow: 0 12px 40px rgba(0, 255, 136, 0.4);
         }
 
-        .chat-toggle svg {
-            width: 28px;
-            height: 28px;
-            fill: #0a0a0a;
-        }
+        .chat-toggle svg { width: 28px; height: 28px; fill: #0a0a0a; }
 
         .chat-window {
             position: fixed;
@@ -248,9 +313,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .chat-window.active {
-            display: flex;
-        }
+        .chat-window.active { display: flex; }
 
         .chat-header {
             background: linear-gradient(135deg, #00ff88, #00cc6a);
@@ -270,23 +333,10 @@
             justify-content: center;
         }
 
-        .chat-avatar svg {
-            width: 20px;
-            height: 20px;
-            fill: #00ff88;
-        }
+        .chat-avatar svg { width: 20px; height: 20px; fill: #00ff88; }
 
-        .chat-info h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #0a0a0a;
-        }
-
-        .chat-info span {
-            font-size: 0.75rem;
-            color: #0a0a0a;
-            opacity: 0.7;
-        }
+        .chat-info h3 { font-size: 1rem; font-weight: 700; color: #0a0a0a; }
+        .chat-info span { font-size: 0.75rem; color: #0a0a0a; opacity: 0.7; }
 
         .chat-close {
             margin-left: auto;
@@ -295,11 +345,7 @@
             cursor: pointer;
         }
 
-        .chat-close svg {
-            width: 20px;
-            height: 20px;
-            fill: #0a0a0a;
-        }
+        .chat-close svg { width: 20px; height: 20px; fill: #0a0a0a; }
 
         .chat-messages {
             flex: 1;
@@ -311,7 +357,7 @@
         }
 
         .message {
-            max-width: 80%;
+            max-width: 85%;
             padding: 12px 16px;
             border-radius: 16px;
             font-size: 0.9rem;
@@ -349,9 +395,7 @@
             outline: none;
         }
 
-        .chat-input input:focus {
-            border-color: #00ff88;
-        }
+        .chat-input input:focus { border-color: #00ff88; }
 
         .chat-input button {
             background: #00ff88;
@@ -364,9 +408,7 @@
             transition: all 0.3s ease;
         }
 
-        .chat-input button:hover {
-            background: #00cc6a;
-        }
+        .chat-input button:hover { background: #00cc6a; }
 
         .typing-indicator {
             display: flex;
@@ -401,13 +443,14 @@
             .stat-number { font-size: 2rem; }
             .grid { grid-template-columns: 1fr; }
             .chat-window { width: calc(100% - 20px); right: 10px; bottom: 90px; }
+            .modal-img { min-width: 300px; height: 200px; }
         }
     </style>
 </head>
 <body>
     <section class="hero">
-        <h1>Meu <span>Portfolio</span></h1>
-        <p>Projetos de sites profissionais criados para diversos nichos de negocio</p>
+        <h1><span>Evans</span> Portfolio</h1>
+        <p>Criando experiencias digitais unicas para cada negocio</p>
         <div class="stats">
             <div class="stat">
                 <div class="stat-number">12</div>
@@ -415,7 +458,7 @@
             </div>
             <div class="stat">
                 <div class="stat-number">100%</div>
-                <div class="stat-label">Responsivos</div>
+                <div class="stat-label">Personalizados</div>
             </div>
             <div class="stat">
                 <div class="stat-number">24/7</div>
@@ -428,190 +471,189 @@
         <h2 class="section-title">Projetos <span>Recentes</span></h2>
         <div class="grid">
             <!-- Evolution Fit Studio -->
-            <div class="card">
+            <div class="card" onclick="openModal('evolution-fit', 'Evolution Fit Studio', 'Academia moderna com sistema de planos, aulas e professores. Layout escuro com detalhes em verde lima.')">
                 <img src="screenshots/evolution-fit.jpg" alt="Evolution Fit Studio" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Evolution Fit Studio</h3>
-                    <p class="card-desc">Academia moderna com planos, modalidades e professores. Layout escuro com detalhes em verde lima.</p>
+                    <p class="card-desc">Academia moderna com sistema de planos, aulas e professores.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Academia</span>
-                        <span class="tag">Responsivo</span>
+                        <span class="tag">Sistema de Planos</span>
+                        <span class="tag">Agendamento</span>
+                        <span class="tag">24h Acesso</span>
                     </div>
-                    <a href="https://userdoomain.github.io/evolution-fit-studio/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Imperial Barber Site -->
-            <div class="card">
+            <div class="card" onclick="openModal('imperial-barber', 'Imperial Barber Site', 'Barbearia premium com tema escuro e detalhes dourados. Sistema de agendamento e servicos.')">
                 <img src="screenshots/imperial-barber.jpg" alt="Imperial Barber Site" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Imperial Barber Site</h3>
-                    <p class="card-desc">Barbearia premium com tema escuro e detalhes dourados. Sistema de agendamento e servicos.</p>
+                    <p class="card-desc">Barbearia premium com tema escuro e detalhes dourados.</p>
                     <div class="card-tags">
-                        <span class="tag">Vite/React</span>
-                        <span class="tag">Barbearia</span>
+                        <span class="tag">Agendamento Online</span>
+                        <span class="tag">Galeria</span>
                         <span class="tag">Premium</span>
                     </div>
-                    <a href="https://userdoomain.github.io/imperial-barber-site/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Nova Prime Store -->
-            <div class="card">
+            <div class="card" onclick="openModal('nova-prime', 'Nova Prime Store', 'Loja online de moda, tecnologia e casa. Layout minimalista e moderno.')">
                 <img src="screenshots/nova-prime.jpg" alt="Nova Prime Store" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Nova Prime Store</h3>
-                    <p class="card-desc">Loja online de moda, tecnologia e casa. Layout minimalista e moderno.</p>
+                    <p class="card-desc">Loja online de moda, tecnologia e casa.</p>
                     <div class="card-tags">
-                        <span class="tag">Vite/React</span>
                         <span class="tag">E-commerce</span>
-                        <span class="tag">Moda</span>
+                        <span class="tag">Carrinho</span>
+                        <span class="tag">Pagamento</span>
                     </div>
-                    <a href="https://userdoomain.github.io/nova-prime-store/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Sabor & Brasa Premium -->
-            <div class="card">
+            <div class="card" onclick="openModal('sabor-brasa', 'Sabor & Brasa Premium', 'Restaurante gourmet com cores quentes, cardapio e ambiente sofisticado.')">
                 <img src="screenshots/sabor-brasa.jpg" alt="Sabor & Brasa Premium" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Sabor & Brasa Premium</h3>
-                    <p class="card-desc">Restaurante gourmet com cores quentes, cardapio e ambiente sofisticado.</p>
+                    <p class="card-desc">Restaurante gourmet com cores quentes e ambiente sofisticado.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Restaurante</span>
+                        <span class="tag">Cardapio Digital</span>
+                        <span class="tag">Reservas</span>
                         <span class="tag">Gourmet</span>
                     </div>
-                    <a href="https://userdoomain.github.io/sabor-e-brasa-premium/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Aurora Palace Hotel -->
-            <div class="card">
+            <div class="card" onclick="openModal('aurora-hotel', 'Aurora Palace Hotel', 'Hotel de luxo com design elegante, quartos, piscina e reservas.')">
                 <img src="screenshots/aurora-hotel.jpg" alt="Aurora Palace Hotel" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Aurora Palace Hotel</h3>
-                    <p class="card-desc">Hotel de luxo com design elegante, quartos, piscina e reservas.</p>
+                    <p class="card-desc">Hotel de luxo com design elegante e reservas.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Hotel</span>
+                        <span class="tag">Reservas Online</span>
+                        <span class="tag">Galeria de Fotos</span>
                         <span class="tag">Luxo</span>
                     </div>
-                    <a href="https://userdoomain.github.io/aurora-palace-hotel/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Advocacia -->
-            <div class="card">
+            <div class="card" onclick="openModal('advocacia', 'Advocacia', 'Escritorio de advocacia com tema profissional, servicos juridicos e formulario de contato.')">
                 <img src="screenshots/advocacia.jpg" alt="Advocacia" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Advocacia</h3>
-                    <p class="card-desc">Escritorio de advocacia com tema profissional, servicos juridicos e formulario de contato.</p>
+                    <p class="card-desc">Escritorio de advocacia com tema profissional.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Advocacia</span>
+                        <span class="tag">Formulario de Contato</span>
+                        <span class="tag">Equipe</span>
                         <span class="tag">Profissional</span>
                     </div>
-                    <a href="https://userdoomain.github.io/advocacia/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Clinica -->
-            <div class="card">
+            <div class="card" onclick="openModal('clinica', 'Clinica', 'Clinica medica com design limpo azul e branco, servicos e agendamento.')">
                 <img src="screenshots/clinica.jpg" alt="Clinica" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Clinica</h3>
-                    <p class="card-desc">Clinica medica com design limpo azul e branco, servicos e agendamento.</p>
+                    <p class="card-desc">Clinica medica com design limpo azul e branco.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Clinica</span>
+                        <span class="tag">Agendamento</span>
+                        <span class="tag">Medicos</span>
                         <span class="tag">Saude</span>
                     </div>
-                    <a href="https://userdoomain.github.io/clinica/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Clinica Veterinaria -->
-            <div class="card">
+            <div class="card" onclick="openModal('clinica-vet', 'Clinica Veterinaria', 'Clinica veterinaria com design amigavel, servicos para pets e cuidados animais.')">
                 <img src="screenshots/clinica-vet.jpg" alt="Clinica Veterinaria" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Clinica Veterinaria</h3>
-                    <p class="card-desc">Clinica veterinaria com design amigavel, servicos para pets e cuidados animais.</p>
+                    <p class="card-desc">Clinica veterinaria com design amigavel para pets.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Veterinaria</span>
-                        <span class="tag">Pets</span>
+                        <span class="tag">Servicos PET</span>
+                        <span class="tag">Vacinacao</span>
+                        <span class="tag">Cuidados</span>
                     </div>
-                    <a href="https://userdoomain.github.io/clinica-veterinaria/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Oficina de Carro -->
-            <div class="card">
+            <div class="card" onclick="openModal('oficina', 'Oficina de Carro', 'Oficina mecanica com tema industrial, servicos automotivos e garagem.')">
                 <img src="screenshots/oficina.jpg" alt="Oficina de Carro" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Oficina de Carro</h3>
-                    <p class="card-desc">Oficina mecanica com tema industrial, servicos automotivos e garagem.</p>
+                    <p class="card-desc">Oficina mecanica com tema industrial.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Oficina</span>
-                        <span class="tag">Automotivo</span>
+                        <span class="tag">Servicos Automotivos</span>
+                        <span class="tag">Orcamento</span>
+                        <span class="tag">Mecanica</span>
                     </div>
-                    <a href="https://userdoomain.github.io/oficina-de-carro/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Pet Shop -->
-            <div class="card">
+            <div class="card" onclick="openModal('pet-shop', 'Pet Shop', 'Pet shop com design colorido e amigavel, produtos e servicos para pets.')">
                 <img src="screenshots/pet-shop.jpg" alt="Pet Shop" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Pet Shop</h3>
-                    <p class="card-desc">Pet shop com design colorido e amigavel, produtos e servicos para pets.</p>
+                    <p class="card-desc">Pet shop com design colorido e amigavel.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Pet Shop</span>
-                        <span class="tag">Pets</span>
+                        <span class="tag">Produtos PET</span>
+                        <span class="tag">Banho e Tosa</span>
+                        <span class="tag">Entrega</span>
                     </div>
-                    <a href="https://userdoomain.github.io/pet-shop/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Salao de Beleza -->
-            <div class="card">
+            <div class="card" onclick="openModal('salao-beleza', 'Salao de Beleza', 'Salao de beleza com design elegante e feminino, tratamentos e cuidados.')">
                 <img src="screenshots/salao-beleza.jpg" alt="Salao de Beleza" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Salao de Beleza</h3>
-                    <p class="card-desc">Salao de beleza com design elegante e feminino, tratamentos e cuidados.</p>
+                    <p class="card-desc">Salao de beleza com design elegante e feminino.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Salao</span>
-                        <span class="tag">Beleza</span>
+                        <span class="tag">Agendamento</span>
+                        <span class="tag">Servicos</span>
+                        <span class="tag">Elegante</span>
                     </div>
-                    <a href="https://userdoomain.github.io/salao-de-beleza/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
 
             <!-- Salao de Festa -->
-            <div class="card">
+            <div class="card" onclick="openModal('salao-festa', 'Salao de Festa', 'Salao de festas com design festivo e elegante, decoracoes e servicos de eventos.')">
                 <img src="screenshots/salao-festa.jpg" alt="Salao de Festa" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Salao de Festa</h3>
-                    <p class="card-desc">Salao de festas com design festivo e elegante, decoracoes e servicos de eventos.</p>
+                    <p class="card-desc">Salao de festas com design festivo e elegante.</p>
                     <div class="card-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">Festas</span>
+                        <span class="tag">Decoracao</span>
                         <span class="tag">Eventos</span>
+                        <span class="tag">Festivo</span>
                     </div>
-                    <a href="https://userdoomain.github.io/salao-de-festa/" target="_blank" class="card-link">Ver site →</a>
                 </div>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 userdoomain - Todos os direitos reservados</p>
+        <p>&copy; 2026 Evans - Todos os direitos reservados</p>
     </footer>
+
+    <!-- Modal de Preview -->
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+        </div>
+        <div class="modal-gallery" id="modalGallery"></div>
+        <div class="modal-dots" id="modalDots"></div>
+        <a href="#" class="modal-link" id="modalLink" target="_blank">Visitar Site →</a>
+    </div>
 
     <!-- Chat de IA -->
     <button class="chat-toggle" onclick="toggleChat()">
@@ -624,7 +666,7 @@
                 <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
             </div>
             <div class="chat-info">
-                <h3>Assistente IA</h3>
+                <h3>Suporte Evans</h3>
                 <span>Online agora</span>
             </div>
             <button class="chat-close" onclick="toggleChat()">
@@ -632,7 +674,7 @@
             </button>
         </div>
         <div class="chat-messages" id="chatMessages">
-            <div class="message bot">Ola! Sou o assistente IA do portfolio. Como posso te ajudar? 😊</div>
+            <div class="message bot">Ola! 👋 Sou o assistente do Evans. Posso te ajudar com informacoes sobre os sites, prazos ou como funciona o processo. Em que posso te ajudar?</div>
         </div>
         <div class="chat-input">
             <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeypress="handleKeyPress(event)">
@@ -641,15 +683,133 @@
     </div>
 
     <script>
+        // Dados dos sites com suas previews
+        const sitesData = {
+            'evolution-fit': {
+                url: 'https://userdoomain.github.io/evolution-fit-studio/',
+                previews: ['home.jpg', 'planos.jpg', 'aulas.jpg']
+            },
+            'imperial-barber': {
+                url: 'https://userdoomain.github.io/imperial-barber-site/',
+                previews: ['home.jpg', 'servicos.jpg', 'galeria.jpg']
+            },
+            'nova-prime': {
+                url: 'https://userdoomain.github.io/nova-prime-store/',
+                previews: ['home.jpg', 'catalogo.jpg']
+            },
+            'sabor-brasa': {
+                url: 'https://userdoomain.github.io/sabor-e-brasa-premium/',
+                previews: ['home.jpg', 'cardapio.jpg', 'reservas.jpg']
+            },
+            'aurora-hotel': {
+                url: 'https://userdoomain.github.io/aurora-palace-hotel/',
+                previews: ['home.jpg', 'quartos.jpg', 'amenidades.jpg']
+            },
+            'advocacia': {
+                url: 'https://userdoomain.github.io/advocacia/',
+                previews: ['home.jpg', 'equipe.jpg']
+            },
+            'clinica': {
+                url: 'https://userdoomain.github.io/clinica/',
+                previews: ['home.jpg', 'medicos.jpg']
+            },
+            'clinica-vet': {
+                url: 'https://userdoomain.github.io/clinica-veterinaria/',
+                previews: ['home.jpg', 'servicos.jpg']
+            },
+            'oficina': {
+                url: 'https://userdoomain.github.io/oficina-de-carro/',
+                previews: ['home.jpg', 'servicos.jpg']
+            },
+            'pet-shop': {
+                url: 'https://userdoomain.github.io/pet-shop/',
+                previews: ['home.jpg', 'produtos.jpg']
+            },
+            'salao-beleza': {
+                url: 'https://userdoomain.github.io/salao-de-beleza/',
+                previews: ['home.jpg', 'servicos.jpg']
+            },
+            'salao-festa': {
+                url: 'https://userdoomain.github.io/salao-de-festa/',
+                previews: ['home.jpg', 'decoracao.jpg']
+            }
+        };
+
+        let currentSite = '';
+        let currentSlide = 0;
+
+        function openModal(siteId, title, description) {
+            currentSite = siteId;
+            currentSlide = 0;
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalGallery = document.getElementById('modalGallery');
+            const modalLink = document.getElementById('modalLink');
+            const modalDots = document.getElementById('modalDots');
+            
+            modalTitle.textContent = title;
+            modalLink.href = sitesData[siteId].url;
+            
+            // Criar galeria
+            modalGallery.innerHTML = '';
+            modalDots.innerHTML = '';
+            
+            sitesData[siteId].previews.forEach((preview, index) => {
+                const img = document.createElement('img');
+                img.src = `previews/${siteId}/${preview}`;
+                img.alt = `${title} - Preview ${index + 1}`;
+                img.className = 'modal-img';
+                modalGallery.appendChild(img);
+                
+                // Criar dot
+                const dot = document.createElement('div');
+                dot.className = 'modal-dot' + (index === 0 ? ' active' : '');
+                dot.onclick = () => goToSlide(index);
+                modalDots.appendChild(dot);
+            });
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            const gallery = document.getElementById('modalGallery');
+            const imgs = gallery.querySelectorAll('.modal-img');
+            const dots = document.querySelectorAll('.modal-dot');
+            
+            imgs.forEach((img, i) => {
+                img.style.transform = i === index ? 'scale(1)' : 'scale(0.9)';
+                img.style.opacity = i === index ? '1' : '0.5';
+            });
+            
+            dots.forEach((dot, i) => {
+                dot.className = 'modal-dot' + (i === index ? ' active' : '');
+            });
+            
+            gallery.scrollTo({
+                left: imgs[index].offsetLeft - 50,
+                behavior: 'smooth'
+            });
+        }
+
+        // Fechar modal com ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeModal();
+        });
+
+        // Chat
         function toggleChat() {
-            const chatWindow = document.getElementById('chatWindow');
-            chatWindow.classList.toggle('active');
+            document.getElementById('chatWindow').classList.toggle('active');
         }
 
         function handleKeyPress(event) {
-            if (event.key === 'Enter') {
-                sendMessage();
-            }
+            if (event.key === 'Enter') sendMessage();
         }
 
         function sendMessage() {
@@ -659,7 +819,6 @@
             
             if (message === '') return;
 
-            // Adiciona mensagem do usuario
             const userMsg = document.createElement('div');
             userMsg.className = 'message user';
             userMsg.textContent = message;
@@ -667,32 +826,35 @@
 
             input.value = '';
 
-            // Indicador de digitacao
             const typing = document.createElement('div');
             typing.className = 'typing-indicator';
             typing.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
             messages.appendChild(typing);
             messages.scrollTop = messages.scrollHeight;
 
-            // Resposta da IA
             setTimeout(() => {
                 typing.remove();
                 const botMsg = document.createElement('div');
                 botMsg.className = 'message bot';
                 
                 const lowerMsg = message.toLowerCase();
-                if (lowerMsg.includes('site') || lowerMsg.includes('sites')) {
-                    botMsg.textContent = 'Temos 12 sites profissionais no portfolio! Cada um e unico e foi criado para atender um nicho diferente. Clique em "Ver site" para visitar cada um! 🌐';
-                } else if (lowerMsg.includes('preco') || lowerMsg.includes('valor') || lowerMsg.includes('quanto')) {
-                    botMsg.textContent = 'Os precos variam conforme a complexidade do projeto. Entre em contato para um orcamento personalizado! 💰';
-                } else if (lowerMsg.includes('contato') || lowerMsg.includes('email') || lowerMsg.includes('whatsapp')) {
-                    botMsg.textContent = 'Voce pode me encontrar no GitHub: userdoomain. Estou disponivel para novos projetos! 📧';
-                } else if (lowerMsg.includes('obrigad') || lowerMsg.includes('valeu')) {
-                    botMsg.textContent = 'De nada! Fico feliz em ajudar! 😊 Se precisar de algo mais, e so chamar!';
-                } else if (lowerMsg.includes('oi') || lowerMsg.includes('ola') || lowerMsg.includes('hello')) {
-                    botMsg.textContent = 'Ola! Bem-vindo ao portfolio! Em que posso te ajudar hoje? 🎉';
+                
+                if (lowerMsg.includes('preco') || lowerMsg.includes('valor') || lowerMsg.includes('quanto') || lowerMsg.includes('custa') || lowerMsg.includes('orcamento')) {
+                    botMsg.innerHTML = 'O valor de cada site depende da complexidade e dos recursos que voce precisa! 💰<br><br>Para receber um orcamento personalizado, <strong>chama no WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a><br><br>O Evans vai te atender e montar algo sob medida para o seu negocio! 🚀';
+                } else if (lowerMsg.includes('prazo') || lowerMsg.includes('tempo') || lowerMsg.includes('demora') || lowerMsg.includes('rapido')) {
+                    botMsg.innerHTML = 'O prazo de entrega varia conforme o projeto! ⏱️<br><br>Sites simples podem ficar prontos em poucos dias, ja projetos mais completos levam um pouco mais.<br><br>Para saber o prazo exato, <strong>chama no WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 💬';
+                } else if (lowerMsg.includes('contato') || lowerMsg.includes('whatsapp') || lowerMsg.includes('numero') || lowerMsg.includes('falar')) {
+                    botMsg.innerHTML = 'Voce pode falar diretamente com o Evans pelo WhatsApp! 📱<br><br><a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88; font-weight: bold;">+55 21 98158-8788</a><br><br>Ele vai te ajudar com o que precisar! 😊';
+                } else if (lowerMsg.includes('site') || lowerMsg.includes('sites') || lowerMsg.includes('portfolio')) {
+                    botMsg.innerHTML = 'Temos 12 sites profissionais no portfolio! 🌐<br><br>Cada um e unico e foi criado para atender um nicho diferente. Clique nos cards para ver mais previews de cada projeto!<br><br>Se quiser algo parecido ou totalmente personalizado, <strong>chama no WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 🚀';
+                } else if (lowerMsg.includes('obrigad') || lowerMsg.includes('valeu') || lowerMsg.includes('thanks')) {
+                    botMsg.innerHTML = 'De nada! 😊 Fico feliz em ajudar!<br><br>Se precisar de qualquer coisa, e so me chamar aqui ou no WhatsApp: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 💚';
+                } else if (lowerMsg.includes('oi') || lowerMsg.includes('ola') || lowerMsg.includes('hello') || lowerMsg.includes('bom dia') || lowerMsg.includes('boa tarde') || lowerMsg.includes('boa noite')) {
+                    botMsg.innerHTML = 'Ola! Bem-vindo ao portfolio do Evans! 🎉<br><br>Posso te ajudar com informacoes sobre os sites, prazos, valores ou como funciona o processo. Em que posso te ajudar?';
+                } else if (lowerMsg.includes('funciona') || lowerMsg.includes('como') || lowerMsg.includes('processo')) {
+                    botMsg.innerHTML = 'O processo e bem simples! 📋<br><br>1️⃣ Voce me chama no WhatsApp<br>2️⃣ A gente conversa sobre o que voce precisa<br>3️⃣ Evans cria o site personalizado<br>4️⃣ Voce aprova e fica online!<br><br>Para comecar, <strong>chama no WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 🚀';
                 } else {
-                    botMsg.textContent = 'Interessante! Posso te ajudar com informacoes sobre os sites, precos ou contato. O que voce gostaria de saber? 🤔';
+                    botMsg.innerHTML = 'Entendi! 😊<br><br>Posso te ajudar com informacoes sobre os sites, prazos, valores ou como funciona o processo.<br><br>Para um atendimento mais rapito e personalizado, <strong>chama no WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 📱';
                 }
                 
                 messages.appendChild(botMsg);
