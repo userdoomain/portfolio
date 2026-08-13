@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - userdoomain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .hero {
+            padding: 80px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.03) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 span {
+            color: #00ff88;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #00ff88;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .portfolio {
+            padding: 60px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .section-title span {
+            color: #00ff88;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: #111;
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid #222;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #00ff88;
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+        }
+
+        .card-img {
+            width: 100%;
+            height: 225px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 24px;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .tag {
+            background: #1a1a2e;
+            color: #00ff88;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #00ff88;
+            text-decoration: none;
+            font-weight: 600;
+            transition: gap 0.3s ease;
+        }
+
+        .card-link:hover {
+            gap: 12px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            color: #444;
+            border-top: 1px solid #1a1a1a;
+        }
+
+        /* Chat de IA */
+        .chat-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 32px rgba(0, 255, 136, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border: none;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 40px rgba(0, 255, 136, 0.4);
+        }
+
+        .chat-toggle svg {
+            width: 28px;
+            height: 28px;
+            fill: #0a0a0a;
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            height: 520px;
+            background: #111;
+            border-radius: 20px;
+            border: 1px solid #222;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            z-index: 1000;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #00ff88, #00cc6a);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .chat-avatar {
+            width: 40px;
+            height: 40px;
+            background: #0a0a0a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-avatar svg {
+            width: 20px;
+            height: 20px;
+            fill: #00ff88;
+        }
+
+        .chat-info h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0a0a0a;
+        }
+
+        .chat-info span {
+            font-size: 0.75rem;
+            color: #0a0a0a;
+            opacity: 0.7;
+        }
+
+        .chat-close {
+            margin-left: auto;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .chat-close svg {
+            width: 20px;
+            height: 20px;
+            fill: #0a0a0a;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .message.bot {
+            background: #1a1a2e;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user {
+            background: #00ff88;
+            color: #0a0a0a;
+            align-self: flex-end;
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-input {
+            padding: 16px;
+            border-top: 1px solid #222;
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-input input {
+            flex: 1;
+            background: #1a1a2e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 12px 16px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+        }
+
+        .chat-input input:focus {
+            border-color: #00ff88;
+        }
+
+        .chat-input button {
+            background: #00ff88;
+            border: none;
+            border-radius: 12px;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #0a0a0a;
+            transition: all 0.3s ease;
+        }
+
+        .chat-input button:hover {
+            background: #00cc6a;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 12px 16px;
+            background: #1a1a2e;
+            border-radius: 16px;
+            align-self: flex-start;
+            border-bottom-left-radius: 4px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff88;
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: 0s; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.5; }
+            30% { transform: translateY(-8px); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats { gap: 30px; flex-wrap: wrap; }
+            .stat-number { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+            .chat-window { width: calc(100% - 20px); right: 10px; bottom: 90px; }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Meu <span>Portfolio</span></h1>
+        <p>Projetos de sites profissionais criados para diversos nichos de negocio</p>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">12</div>
+                <div class="stat-label">Sites Criados</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Responsivos</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Online</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio">
+        <h2 class="section-title">Projetos <span>Recentes</span></h2>
+        <div class="grid">
+            <!-- Evolution Fit Studio -->
+            <div class="card">
+                <img src="screenshots/evolution-fit.jpg" alt="Evolution Fit Studio" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Evolution Fit Studio</h3>
+                    <p class="card-desc">Academia moderna com planos, modalidades e professores. Layout escuro com detalhes em verde lima.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Academia</span>
+                        <span class="tag">Responsivo</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/evolution-fit-studio/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Imperial Barber Site -->
+            <div class="card">
+                <img src="screenshots/imperial-barber.jpg" alt="Imperial Barber Site" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Imperial Barber Site</h3>
+                    <p class="card-desc">Barbearia premium com tema escuro e detalhes dourados. Sistema de agendamento e servicos.</p>
+                    <div class="card-tags">
+                        <span class="tag">Vite/React</span>
+                        <span class="tag">Barbearia</span>
+                        <span class="tag">Premium</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/imperial-barber-site/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Nova Prime Store -->
+            <div class="card">
+                <img src="screenshots/nova-prime.jpg" alt="Nova Prime Store" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Nova Prime Store</h3>
+                    <p class="card-desc">Loja online de moda, tecnologia e casa. Layout minimalista e moderno.</p>
+                    <div class="card-tags">
+                        <span class="tag">Vite/React</span>
+                        <span class="tag">E-commerce</span>
+                        <span class="tag">Moda</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/nova-prime-store/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Sabor & Brasa Premium -->
+            <div class="card">
+                <img src="screenshots/sabor-brasa.jpg" alt="Sabor & Brasa Premium" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Sabor & Brasa Premium</h3>
+                    <p class="card-desc">Restaurante gourmet com cores quentes, cardapio e ambiente sofisticado.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Restaurante</span>
+                        <span class="tag">Gourmet</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/sabor-e-brasa-premium/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Aurora Palace Hotel -->
+            <div class="card">
+                <img src="screenshots/aurora-hotel.jpg" alt="Aurora Palace Hotel" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Aurora Palace Hotel</h3>
+                    <p class="card-desc">Hotel de luxo com design elegante, quartos, piscina e reservas.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Hotel</span>
+                        <span class="tag">Luxo</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/aurora-palace-hotel/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Advocacia -->
+            <div class="card">
+                <img src="screenshots/advocacia.jpg" alt="Advocacia" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Advocacia</h3>
+                    <p class="card-desc">Escritorio de advocacia com tema profissional, servicos juridicos e formulario de contato.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Advocacia</span>
+                        <span class="tag">Profissional</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/advocacia/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Clinica -->
+            <div class="card">
+                <img src="screenshots/clinica.jpg" alt="Clinica" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Clinica</h3>
+                    <p class="card-desc">Clinica medica com design limpo azul e branco, servicos e agendamento.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Clinica</span>
+                        <span class="tag">Saude</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/clinica/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Clinica Veterinaria -->
+            <div class="card">
+                <img src="screenshots/clinica-vet.jpg" alt="Clinica Veterinaria" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Clinica Veterinaria</h3>
+                    <p class="card-desc">Clinica veterinaria com design amigavel, servicos para pets e cuidados animais.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Veterinaria</span>
+                        <span class="tag">Pets</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/clinica-veterinaria/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Oficina de Carro -->
+            <div class="card">
+                <img src="screenshots/oficina.jpg" alt="Oficina de Carro" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Oficina de Carro</h3>
+                    <p class="card-desc">Oficina mecanica com tema industrial, servicos automotivos e garagem.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Oficina</span>
+                        <span class="tag">Automotivo</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/oficina-de-carro/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Pet Shop -->
+            <div class="card">
+                <img src="screenshots/pet-shop.jpg" alt="Pet Shop" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Pet Shop</h3>
+                    <p class="card-desc">Pet shop com design colorido e amigavel, produtos e servicos para pets.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Pet Shop</span>
+                        <span class="tag">Pets</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/pet-shop/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Salao de Beleza -->
+            <div class="card">
+                <img src="screenshots/salao-beleza.jpg" alt="Salao de Beleza" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Salao de Beleza</h3>
+                    <p class="card-desc">Salao de beleza com design elegante e feminino, tratamentos e cuidados.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Salao</span>
+                        <span class="tag">Beleza</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/salao-de-beleza/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+
+            <!-- Salao de Festa -->
+            <div class="card">
+                <img src="screenshots/salao-festa.jpg" alt="Salao de Festa" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Salao de Festa</h3>
+                    <p class="card-desc">Salao de festas com design festivo e elegante, decoracoes e servicos de eventos.</p>
+                    <div class="card-tags">
+                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">Festas</span>
+                        <span class="tag">Eventos</span>
+                    </div>
+                    <a href="https://userdoomain.github.io/salao-de-festa/" target="_blank" class="card-link">Ver site →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 userdoomain - Todos os direitos reservados</p>
+    </footer>
+
+    <!-- Chat de IA -->
+    <button class="chat-toggle" onclick="toggleChat()">
+        <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/></svg>
+    </button>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">
+            <div class="chat-avatar">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <div class="chat-info">
+                <h3>Assistente IA</h3>
+                <span>Online agora</span>
+            </div>
+            <button class="chat-close" onclick="toggleChat()">
+                <svg viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+        </div>
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot">Ola! Sou o assistente IA do portfolio. Como posso te ajudar? 😊</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="chatInput" placeholder="Digite sua mensagem..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleChat() {
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('active');
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messages = document.getElementById('chatMessages');
+            const message = input.value.trim();
+            
+            if (message === '') return;
+
+            // Adiciona mensagem do usuario
+            const userMsg = document.createElement('div');
+            userMsg.className = 'message user';
+            userMsg.textContent = message;
+            messages.appendChild(userMsg);
+
+            input.value = '';
+
+            // Indicador de digitacao
+            const typing = document.createElement('div');
+            typing.className = 'typing-indicator';
+            typing.innerHTML = '<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+            messages.appendChild(typing);
+            messages.scrollTop = messages.scrollHeight;
+
+            // Resposta da IA
+            setTimeout(() => {
+                typing.remove();
+                const botMsg = document.createElement('div');
+                botMsg.className = 'message bot';
+                
+                const lowerMsg = message.toLowerCase();
+                if (lowerMsg.includes('site') || lowerMsg.includes('sites')) {
+                    botMsg.textContent = 'Temos 12 sites profissionais no portfolio! Cada um e unico e foi criado para atender um nicho diferente. Clique em "Ver site" para visitar cada um! 🌐';
+                } else if (lowerMsg.includes('preco') || lowerMsg.includes('valor') || lowerMsg.includes('quanto')) {
+                    botMsg.textContent = 'Os precos variam conforme a complexidade do projeto. Entre em contato para um orcamento personalizado! 💰';
+                } else if (lowerMsg.includes('contato') || lowerMsg.includes('email') || lowerMsg.includes('whatsapp')) {
+                    botMsg.textContent = 'Voce pode me encontrar no GitHub: userdoomain. Estou disponivel para novos projetos! 📧';
+                } else if (lowerMsg.includes('obrigad') || lowerMsg.includes('valeu')) {
+                    botMsg.textContent = 'De nada! Fico feliz em ajudar! 😊 Se precisar de algo mais, e so chamar!';
+                } else if (lowerMsg.includes('oi') || lowerMsg.includes('ola') || lowerMsg.includes('hello')) {
+                    botMsg.textContent = 'Ola! Bem-vindo ao portfolio! Em que posso te ajudar hoje? 🎉';
+                } else {
+                    botMsg.textContent = 'Interessante! Posso te ajudar com informacoes sobre os sites, precos ou contato. O que voce gostaria de saber? 🤔';
+                }
+                
+                messages.appendChild(botMsg);
+                messages.scrollTop = messages.scrollHeight;
+            }, 1500);
+        }
+
+        // Animacao de entrada dos cards
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
