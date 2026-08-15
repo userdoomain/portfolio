@@ -559,7 +559,7 @@
         <p>Criando experiencias digitais unicas para cada negocio</p>
         <div class="stats">
             <div class="stat">
-                <div class="stat-number">12</div>
+                <div class="stat-number">13</div>
                 <div class="stat-label">Sites de Exemplos</div>
             </div>
             <div class="stat">
@@ -587,6 +587,20 @@
     <section class="portfolio">
         <h2 class="section-title">Modelos & <span>Exemplos</span></h2>
         <div class="grid">
+            <!-- Jessica Pepe Advocacia -->
+            <div class="card" onclick="openModal('jessica-pepe', 'Jessica Pepe Advocacia', 'Escritorio de advocacia no Centro do Rio, design juridico premium com prova social real e CTA de WhatsApp.')">
+                <img src="screenshots/jessica-pepe.jpg" alt="Jessica Pepe Advocacia" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">Jessica Pepe Advocacia</h3>
+                    <p class="card-desc">Escritorio de advocacia premium no Centro do Rio.</p>
+                    <div class="card-tags">
+                        <span class="tag">WhatsApp CTA</span>
+                        <span class="tag">Prova Social</span>
+                        <span class="tag">Mapa Local</span>
+                    </div>
+                </div>
+            </div>
+
             <!-- Evolution Fit Studio -->
             <div class="card" onclick="openModal('evolution-fit', 'Evolution Fit Studio', 'Academia moderna com sistema de planos, aulas e professores. Layout escuro com detalhes em verde lima.')">
                 <img src="screenshots/evolution-fit.jpg" alt="Evolution Fit Studio" class="card-img">
@@ -802,6 +816,10 @@
     <script>
         // Dados dos sites com suas previews
         const sitesData = {
+            'jessica-pepe': {
+                url: 'https://userdoomain.github.io/jessica-pepe-advocacia/',
+                previews: ['home.jpg', 'sobre.jpg', 'avaliacoes.jpg', 'contato.jpg']
+            },
             'evolution-fit': {
                 url: 'https://userdoomain.github.io/evolution-fit-studio/',
                 previews: ['home.jpg', 'planos.jpg', 'aulas.jpg']
@@ -963,7 +981,7 @@
                 } else if (lowerMsg.includes('contato') || lowerMsg.includes('whatsapp') || lowerMsg.includes('numero') || lowerMsg.includes('falar')) {
                     botMsg.innerHTML = 'Voce pode falar diretamente com o Evans pelo WhatsApp! 📱<br><br><a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88; font-weight: bold;">+55 21 98158-8788</a><br><br>Ele vai te ajudar com o que precisar! 😊';
                 } else if (lowerMsg.includes('site') || lowerMsg.includes('sites') || lowerMsg.includes('portfolio')) {
-                    botMsg.innerHTML = 'Temos 12 sites de exemplo no portfolio! 🌐<br><br>Cada um e unico e mostra como seu negocio pode ter uma presenca online profissional. Clique nos cards para ver mais previews de cada modelo!<br><br>Se quiser algo parecido ou totalmente personalizado, <strong>chama no WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 🚀';
+                    botMsg.innerHTML = 'Temos 13 sites de exemplo no portfolio! 🌐<br><br>Cada um e unico e mostra como seu negocio pode ter uma presenca online profissional. Clique nos cards para ver mais previews de cada modelo!<br><br>Se quiser algo parecido ou totalmente personalizado, <strong>chama no WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 🚀';
                 } else if (lowerMsg.includes('obrigad') || lowerMsg.includes('valeu') || lowerMsg.includes('thanks')) {
                     botMsg.innerHTML = 'De nada! 😊 Fico feliz em ajudar!<br><br>Se precisar de qualquer coisa, e so me chamar aqui ou no WhatsApp: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 💚';
                 } else if (lowerMsg.includes('oi') || lowerMsg.includes('ola') || lowerMsg.includes('hello') || lowerMsg.includes('bom dia') || lowerMsg.includes('boa tarde') || lowerMsg.includes('boa noite')) {
