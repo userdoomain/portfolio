@@ -159,6 +159,29 @@
             display: block;
         }
 
+        
+        .card-img-fallback {
+            width: 100%;
+            height: 225px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f2a1d 55%, #111 100%);
+            color: #00ff88;
+            text-align: center;
+            gap: 6px;
+        }
+        .card-img-fallback span {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+        .card-img-fallback small {
+            font-size: 0.85rem;
+            color: #888;
+            font-weight: 500;
+        }
+
         .card-content { padding: 24px; }
         .card-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; }
         .card-desc { font-size: 0.9rem; color: #888; margin-bottom: 20px; line-height: 1.6; }
@@ -557,19 +580,19 @@
         <div class="hero-orb hero-orb-2"></div>
         <div class="hero-orb hero-orb-3"></div>
         <h1><span>Evans</span> Portfolio</h1>
-        <p>Creating unique digital experiences for every business</p>
+        <p>Websites that turn visitors into customers — fast, clean, and made for your business.</p>
         <div class="stats">
             <div class="stat">
                 <div class="stat-number">27</div>
-                <div class="stat-label">Sample Sites</div>
+                <div class="stat-label">Live demos</div>
             </div>
             <div class="stat">
                 <div class="stat-number">100%</div>
-                <div class="stat-label">Custom Built</div>
+                <div class="stat-label">Built from scratch</div>
             </div>
             <div class="stat">
                 <div class="stat-number">24/7</div>
-                <div class="stat-label">Online</div>
+                <div class="stat-label">Always live</div>
             </div>
             </div>
         </div>
@@ -586,13 +609,13 @@
     </section>
 
     <section class="portfolio">
-        <h2 class="section-title">Templates & <span>Examples</span></h2>
+        <h2 class="section-title">Selected <span>Work</span></h2>
         <div class="grid">
-<div class="card" onclick="openModal('2k-barbershop', '2K Barbershop', 'Premium barbershop in downtown Niterói, with modern cuts and a sophisticated atmosphere.')">
-                <img src="screenshots/2k-barbershop.jpg" alt="2K Barbershop" class="card-img">
+<div class="card" onclick="openModal('2k-barbershop', '2K Barbershop', 'Downtown Niterói barbershop — sharp cuts, clean fades, and a proper old-school chair. Built to book.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>B</span><small>2K Barbershop</small></div>
                 <div class="card-content">
                     <h3 class="card-title">2K Barbershop</h3>
-                    <p class="card-desc">Premium barbershop in downtown Niterói, with modern cuts and a sophisticated atmosphere.</p>
+                    <p class="card-desc">Downtown Niterói barbershop — sharp cuts, clean fades, and a proper old-school chair. Built to book.</p>
                     <div class="card-tags">
                         <span class="tag">Barbershop</span>
                         <span class="tag">Modern Cuts</span>
@@ -601,11 +624,11 @@
                 </div>
             </div>
             <!-- Barbearia Altas Horas -->
-            <div class="card" onclick="openModal('barbearia-altas-horas', 'Barbearia Altas Horas', 'Barbershop in Engenhoca, Niterói, with extended opening hours.')">
-                <img src="screenshots/barbearia-altas-horas.jpg" alt="Barbearia Altas Horas" class="card-img">
+            <div class="card" onclick="openModal('barbearia-altas-horas', 'Barbearia Altas Horas', 'Late-night barbershop in Engenhoca. Open when you actually need a cut.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>BA</span><small>Barbearia Altas Horas</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Barbearia Altas Horas</h3>
-                    <p class="card-desc">Barbershop in Engenhoca, Niterói, with extended opening hours.</p>
+                    <p class="card-desc">Late-night barbershop in Engenhoca. Open when you actually need a cut.</p>
                     <div class="card-tags">
                         <span class="tag">Barbershop</span>
                         <span class="tag">Extended Hours</span>
@@ -614,11 +637,11 @@
                 </div>
             </div>
             <!-- Barbearia A.S -->
-            <div class="card" onclick="openModal('barbearia-as', 'Barbearia A.S', 'Barbershop in downtown Niterói with full haircut and beard services.')">
-                <img src="screenshots/barbearia-as.jpg" alt="Barbearia A.S" class="card-img">
+            <div class="card" onclick="openModal('barbearia-as', 'Barbearia A.S', 'Downtown spot for haircut + beard, no fuss. Walk in, leave sharp.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>BA</span><small>Barbearia A.S</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Barbearia A.S</h3>
-                    <p class="card-desc">Barbershop in downtown Niterói with full haircut and beard services.</p>
+                    <p class="card-desc">Downtown spot for haircut + beard, no fuss. Walk in, leave sharp.</p>
                     <div class="card-tags">
                         <span class="tag">Barbershop</span>
                         <span class="tag">Haircut & Beard</span>
@@ -627,11 +650,11 @@
                 </div>
             </div>
             <!-- BarbeCria -->
-            <div class="card" onclick="openModal('barbecria', 'BarbeCria', 'Barbershop in Santa Rosa, Niterói, specialized in creative cuts.')">
-                <img src="screenshots/barbecria.jpg" alt="BarbeCria" class="card-img">
+            <div class="card" onclick="openModal('barbecria', 'BarbeCria', 'Santa Rosa shop for creative cuts and fresh styles.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>B</span><small>BarbeCria</small></div>
                 <div class="card-content">
                     <h3 class="card-title">BarbeCria</h3>
-                    <p class="card-desc">Barbershop in Santa Rosa, Niterói, specialized in creative cuts.</p>
+                    <p class="card-desc">Santa Rosa shop for creative cuts and fresh styles.</p>
                     <div class="card-tags">
                         <span class="tag">Barbershop</span>
                         <span class="tag">Creative Cuts</span>
@@ -640,11 +663,11 @@
                 </div>
             </div>
             <!-- Barbeiro a Domicilio -->
-            <div class="card" onclick="openModal('barbeiro-domicilio', 'Barbeiro a Domicilio', 'Barbershop that comes to you in Icaraí, Downtown and Santa Rosa, Niterói.')">
-                <img src="screenshots/barbeiro-domicilio.jpg" alt="Barbeiro a Domicilio" class="card-img">
+            <div class="card" onclick="openModal('barbeiro-domicilio', 'Barbeiro a Domicilio', 'We come to you — Icaraí, Downtown, Santa Rosa. Cut at home.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>BA</span><small>Barbeiro a Domicilio</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Barbeiro a Domicilio</h3>
-                    <p class="card-desc">Barbershop that comes to you in Icaraí, Downtown and Santa Rosa, Niterói.</p>
+                    <p class="card-desc">We come to you — Icaraí, Downtown, Santa Rosa. Cut at home.</p>
                     <div class="card-tags">
                         <span class="tag">Barbershop</span>
                         <span class="tag">At-Home Service</span>
@@ -653,11 +676,11 @@
                 </div>
             </div>
             <!-- Barber e Beer by Zoff -->
-            <div class="card" onclick="openModal('barber-beer-zoff', 'Barber e Beer by Zoff', 'Premium barbershop with draft and craft beer for the complete experience.')">
-                <img src="screenshots/barber-beer-zoff.jpg" alt="Barber e Beer by Zoff" class="card-img">
+            <div class="card" onclick="openModal('barber-beer-zoff', 'Barber e Beer by Zoff', 'Cut + cold draft beer. The full Zoff experience.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>BE</span><small>Barber e Beer by Zoff</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Barber e Beer by Zoff</h3>
-                    <p class="card-desc">Premium barbershop with draft and craft beer for the complete experience.</p>
+                    <p class="card-desc">Cut + cold draft beer. The full Zoff experience.</p>
                     <div class="card-tags">
                         <span class="tag">Barbershop</span>
                         <span class="tag">Craft Beer</span>
@@ -666,11 +689,11 @@
                 </div>
             </div>
             <!-- Center Hotel -->
-            <div class="card" onclick="openModal('center-hotel', 'Center Hotel', 'Hotel in downtown Duque de Caxias, with comfort and strategic location.')">
-                <img src="screenshots/center-hotel.jpg" alt="Center Hotel" class="card-img">
+            <div class="card" onclick="openModal('center-hotel', 'Center Hotel', 'Downtown Duque de Caxias — simple, clean, well located. Good sleep, easy check-in.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>CH</span><small>Center Hotel</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Center Hotel</h3>
-                    <p class="card-desc">Hotel in downtown Duque de Caxias, with comfort and strategic location.</p>
+                    <p class="card-desc">Downtown Duque de Caxias — simple, clean, well located. Good sleep, easy check-in.</p>
                     <div class="card-tags">
                         <span class="tag">Hotel</span>
                         <span class="tag">Downtown</span>
@@ -679,11 +702,11 @@
                 </div>
             </div>
             <!-- Centrofisio Vallora -->
-            <div class="card" onclick="openModal('centrofisio', 'Centrofisio Vallora', 'Physiotherapy, aesthetics and longevity all in one place, with qualified professionals.')">
-                <img src="screenshots/centrofisio.jpg" alt="Centrofisio Vallora" class="card-img">
+            <div class="card" onclick="openModal('centrofisio', 'Centrofisio Vallora', 'Physio, aesthetics and longevity under one roof. Real professionals, real care.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>CV</span><small>Centrofisio Vallora</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Centrofisio Vallora</h3>
-                    <p class="card-desc">Physiotherapy, aesthetics and longevity all in one place, with qualified professionals.</p>
+                    <p class="card-desc">Physio, aesthetics and longevity under one roof. Real professionals, real care.</p>
                     <div class="card-tags">
                         <span class="tag">Physiotherapy</span>
                         <span class="tag">Aesthetics</span>
@@ -692,11 +715,11 @@
                 </div>
             </div>
             <!-- Champion Motel -->
-            <div class="card" onclick="openModal('champion-motel', 'Champion Motel', 'Motel on Avenida Brasil, Vigário Geral, with themed suites and privacy.')">
-                <img src="screenshots/champion-motel.jpg" alt="Champion Motel" class="card-img">
+            <div class="card" onclick="openModal('champion-motel', 'Champion Motel', 'Motel on Avenida Brasil — themed suites, full privacy, easy access.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>CM</span><small>Champion Motel</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Champion Motel</h3>
-                    <p class="card-desc">Motel on Avenida Brasil, Vigário Geral, with themed suites and privacy.</p>
+                    <p class="card-desc">Motel on Avenida Brasil — themed suites, full privacy, easy access.</p>
                     <div class="card-tags">
                         <span class="tag">Motel</span>
                         <span class="tag">Themed Suites</span>
@@ -705,11 +728,11 @@
                 </div>
             </div>
             <!-- Duplex Charmoso -->
-            <div class="card" onclick="openModal('duplex-charmoso', 'Duplex Charmoso', 'Vacation apartment in Niterói, charming and well located.')">
-                <img src="screenshots/duplex-charmoso.jpg" alt="Duplex Charmoso" class="card-img">
+            <div class="card" onclick="openModal('duplex-charmoso', 'Duplex Charmoso', 'Charming duplex for your Niterói stay — bright, handy, close to everything.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>DC</span><small>Duplex Charmoso</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Duplex Charmoso</h3>
-                    <p class="card-desc">Vacation apartment in Niterói, charming and well located.</p>
+                    <p class="card-desc">Charming duplex for your Niterói stay — bright, handy, close to everything.</p>
                     <div class="card-tags">
                         <span class="tag">Vacation Rental</span>
                         <span class="tag">Apartment</span>
@@ -718,11 +741,11 @@
                 </div>
             </div>
             <!-- Favela Hostel -->
-            <div class="card" onclick="openModal('favela-hostel', 'Favela Hostel', 'Hostel in Rocinha, Rio de Janeiro, with an authentic and budget-friendly experience.')">
-                <img src="screenshots/favela-hostel.jpg" alt="Favela Hostel" class="card-img">
+            <div class="card" onclick="openModal('favela-hostel', 'Favela Hostel', 'Stay in Rocinha — authentic Rio, friendly price, good vibes.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>FH</span><small>Favela Hostel</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Favela Hostel</h3>
-                    <p class="card-desc">Hostel in Rocinha, Rio de Janeiro, with an authentic and budget-friendly experience.</p>
+                    <p class="card-desc">Stay in Rocinha — authentic Rio, friendly price, good vibes.</p>
                     <div class="card-tags">
                         <span class="tag">Hostel</span>
                         <span class="tag">Rocinha</span>
@@ -731,11 +754,11 @@
                 </div>
             </div>
             <!-- Grand Midas Rio Convention -->
-            <div class="card" onclick="openModal('grand-midas', 'Grand Midas Rio Convention', 'Hotel and suites in Jacarepaguá, Rio, with facilities for conventions and events.')">
-                <img src="screenshots/grand-midas.jpg" alt="Grand Midas Rio Convention" class="card-img">
+            <div class="card" onclick="openModal('grand-midas', 'Grand Midas Rio Convention', 'Hotel & suites in Jacarepaguá. Built for events and big groups — no stress.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>GM</span><small>Grand Midas Rio Convention</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Grand Midas Rio Convention</h3>
-                    <p class="card-desc">Hotel and suites in Jacarepaguá, Rio, with facilities for conventions and events.</p>
+                    <p class="card-desc">Hotel & suites in Jacarepaguá. Built for events and big groups — no stress.</p>
                     <div class="card-tags">
                         <span class="tag">Hotel</span>
                         <span class="tag">Conventions</span>
@@ -744,11 +767,11 @@
                 </div>
             </div>
             <!-- Hospedagem Caminho das Praias -->
-            <div class="card" onclick="openModal('hospedagem-caminho-praias', 'Hospedagem Caminho das Praias', 'Guesthouse in Pé Pequeno, Rio coast, close to the most beautiful beaches.')">
-                <img src="screenshots/hospedagem-caminho-praias.jpg" alt="Hospedagem Caminho das Praias" class="card-img">
+            <div class="card" onclick="openModal('hospedagem-caminho-praias', 'Hospedagem Caminho das Praias', 'Small guesthouse in Pé Pequeno, steps from the best beaches on the Rio coast.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>HC</span><small>Hospedagem Caminho das Praias</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Hospedagem Caminho das Praias</h3>
-                    <p class="card-desc">Guesthouse in Pé Pequeno, Rio coast, close to the most beautiful beaches.</p>
+                    <p class="card-desc">Small guesthouse in Pé Pequeno, steps from the best beaches on the Rio coast.</p>
                     <div class="card-tags">
                         <span class="tag">Guesthouse</span>
                         <span class="tag">Beaches</span>
@@ -757,11 +780,11 @@
                 </div>
             </div>
             <!-- MABOLT -->
-            <div class="card" onclick="openModal('mabolt', 'MABOLT', 'Men's image consulting: style, haircut and presence for men.')">
-                <img src="screenshots/mabolt.jpg" alt="MABOLT" class="card-img">
+            <div class="card" onclick="openModal('mabolt', 'MABOLT', 'Men's image consulting — style, grooming and presence. Look the part.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>M</span><small>MABOLT</small></div>
                 <div class="card-content">
                     <h3 class="card-title">MABOLT</h3>
-                    <p class="card-desc">Men's image consulting: style, haircut and presence for men.</p>
+                    <p class="card-desc">Men's image consulting — style, grooming and presence. Look the part.</p>
                     <div class="card-tags">
                         <span class="tag">Consulting</span>
                         <span class="tag">Image</span>
@@ -770,11 +793,11 @@
                 </div>
             </div>
             <!-- Evans Web Studio -->
-            <div class="card" onclick="openModal('evans-web-studio', 'Evans Web Studio', 'Official website of Evans Web itself: building professional websites for businesses.')">
-                <img src="screenshots/evans-web-studio.jpg" alt="Evans Web Studio" class="card-img">
+            <div class="card" onclick="openModal('evans-web-studio', 'Evans Web Studio', 'My own studio site — how I build fast, professional sites for local businesses.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>EW</span><small>Evans Web Studio</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Evans Web Studio</h3>
-                    <p class="card-desc">Official website of Evans Web itself: building professional websites for businesses.</p>
+                    <p class="card-desc">My own studio site — how I build fast, professional sites for local businesses.</p>
                     <div class="card-tags">
                         <span class="tag">Corporate</span>
                         <span class="tag">Portfolio</span>
@@ -785,8 +808,8 @@
 </div>
 
             <!-- Evolution Fit Studio -->
-            <div class="card" onclick="openModal('evolution-fit', 'Evolution Fit Studio', 'Modern gym with membership plans, classes and trainers. Dark layout with lime green accents.')">
-                <img src="screenshots/evolution-fit.jpg" alt="Evolution Fit Studio" class="card-img">
+            <div class="card" onclick="openModal('evolution-fit', 'Evolution Fit Studio', 'Modern gym — memberships, classes, real coaches. Dark, punchy, lime accents.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>EF</span><small>Evolution Fit Studio</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Evolution Fit Studio</h3>
                     <p class="card-desc">Modern gym with membership plans, classes and trainers.</p>
@@ -799,8 +822,8 @@
             </div>
 
             <!-- Imperial Barber Site -->
-            <div class="card" onclick="openModal('imperial-barber', 'Imperial Barber Site', 'Premium barbershop with dark theme and golden details. Booking system and services.')">
-                <img src="screenshots/imperial-barber.jpg" alt="Imperial Barber Site" class="card-img">
+            <div class="card" onclick="openModal('imperial-barber', 'Imperial Barber Site', 'Dark, premium barbershop with gold details and online booking. Clean and sharp.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>IB</span><small>Imperial Barber Site</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Imperial Barber Site</h3>
                     <p class="card-desc">Premium barbershop with dark theme and golden details.</p>
@@ -813,8 +836,8 @@
             </div>
 
             <!-- Nova Prime Store -->
-            <div class="card" onclick="openModal('nova-prime', 'Nova Prime Store', 'Online store for fashion, tech and home. Minimalist and modern layout.')">
-                <img src="screenshots/nova-prime.jpg" alt="Nova Prime Store" class="card-img">
+            <div class="card" onclick="openModal('nova-prime', 'Nova Prime Store', 'Online store for fashion, tech & home. Minimal, fast, built to sell.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>NP</span><small>Nova Prime Store</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Nova Prime Store</h3>
                     <p class="card-desc">Online store for fashion, tech and home.</p>
@@ -827,8 +850,8 @@
             </div>
 
             <!-- Sabor & Brasa Premium -->
-            <div class="card" onclick="openModal('sabor-brasa', 'Sabor & Brasa Premium', 'Gourmet restaurant with warm colors, menu and sophisticated ambiance.')">
-                <img src="screenshots/sabor-brasa.jpg" alt="Sabor & Brasa Premium" class="card-img">
+            <div class="card" onclick="openModal('sabor-brasa', 'Sabor & Brasa Premium', 'Gourmet spot — warm, wood-fire menu, elegant but relaxed.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>SB</span><small>Sabor & Brasa Premium</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Sabor & Brasa Premium</h3>
                     <p class="card-desc">Gourmet restaurant with warm colors and sophisticated ambiance.</p>
@@ -841,8 +864,8 @@
             </div>
 
             <!-- Aurora Palace Hotel -->
-            <div class="card" onclick="openModal('aurora-hotel', 'Aurora Palace Hotel', 'Luxury hotel with elegant design, rooms, pool and reservations.')">
-                <img src="screenshots/aurora-hotel.jpg" alt="Aurora Palace Hotel" class="card-img">
+            <div class="card" onclick="openModal('aurora-hotel', 'Aurora Palace Hotel', 'Luxury hotel — elegant rooms, pool, and easy online reservations.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>AP</span><small>Aurora Palace Hotel</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Aurora Palace Hotel</h3>
                     <p class="card-desc">Luxury hotel with elegant design and reservations.</p>
@@ -855,8 +878,8 @@
             </div>
 
             <!-- Advocacia -->
-            <div class="card" onclick="openModal('advocacia', 'Advocacia', 'Law firm with professional theme, legal services and contact form.')">
-                <img src="screenshots/advocacia.jpg" alt="Advocacia" class="card-img">
+            <div class="card" onclick="openModal('advocacia', 'Advocacia', 'Law firm site — clean, professional, clear services and contact.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>A</span><small>Advocacia</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Advocacia</h3>
                     <p class="card-desc">Law firm with professional theme.</p>
@@ -869,8 +892,8 @@
             </div>
 
             <!-- Clinica -->
-            <div class="card" onclick="openModal('clinica', 'Clinica', 'Medical clinic with clean blue and white design, services and booking.')">
-                <img src="screenshots/clinica.jpg" alt="Clinica" class="card-img">
+            <div class="card" onclick="openModal('clinica', 'Clinica', 'Medical clinic — clean blue & white, services and easy booking.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>C</span><small>Clinica</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Clinica</h3>
                     <p class="card-desc">Medical clinic with clean blue and white design.</p>
@@ -883,8 +906,8 @@
             </div>
 
             <!-- Clinica Veterinaria -->
-            <div class="card" onclick="openModal('clinica-vet', 'Clinica Veterinaria', 'Veterinary clinic with friendly design, pet services and animal care.')">
-                <img src="screenshots/clinica-vet.jpg" alt="Clinica Veterinaria" class="card-img">
+            <div class="card" onclick="openModal('clinica-vet', 'Clinica Veterinaria', 'Vet clinic — friendly, warm, built for pet parents.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>CV</span><small>Clinica Veterinaria</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Clinica Veterinaria</h3>
                     <p class="card-desc">Veterinary clinic with friendly design for pets.</p>
@@ -897,8 +920,8 @@
             </div>
 
             <!-- Oficina de Carro -->
-            <div class="card" onclick="openModal('oficina', 'Oficina de Carro', 'Auto repair shop with industrial theme, automotive services and garage.')">
-                <img src="screenshots/oficina.jpg" alt="Oficina de Carro" class="card-img">
+            <div class="card" onclick="openModal('oficina', 'Oficina de Carro', 'Auto shop — industrial feel, clear services and quick quote.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>OD</span><small>Oficina de Carro</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Oficina de Carro</h3>
                     <p class="card-desc">Auto repair shop with industrial theme.</p>
@@ -911,8 +934,8 @@
             </div>
 
             <!-- Pet Shop -->
-            <div class="card" onclick="openModal('pet-shop', 'Pet Shop', 'Pet shop with colorful and friendly design, products and services for pets.')">
-                <img src="screenshots/pet-shop.jpg" alt="Pet Shop" class="card-img">
+            <div class="card" onclick="openModal('pet-shop', 'Pet Shop', 'Pet shop — colorful, friendly, everything for your pet.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>PS</span><small>Pet Shop</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Pet Shop</h3>
                     <p class="card-desc">Pet shop with colorful and friendly design.</p>
@@ -925,8 +948,8 @@
             </div>
 
             <!-- Salao de Beleza -->
-            <div class="card" onclick="openModal('salao-beleza', 'Salao de Beleza', 'Beauty salon with elegant and feminine design, treatments and care.')">
-                <img src="screenshots/salao-beleza.jpg" alt="Salao de Beleza" class="card-img">
+            <div class="card" onclick="openModal('salao-beleza', 'Salao de Beleza', 'Beauty salon — elegant, feminine, treatments that feel premium.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>SD</span><small>Salao de Beleza</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Salao de Beleza</h3>
                     <p class="card-desc">Beauty salon with elegant and feminine design.</p>
@@ -939,8 +962,8 @@
             </div>
 
             <!-- Salao de Festa -->
-            <div class="card" onclick="openModal('salao-festa', 'Salao de Festa', 'Event hall with festive and elegant design, decorations and event services.')">
-                <img src="screenshots/salao-festa.jpg" alt="Salao de Festa" class="card-img">
+            <div class="card" onclick="openModal('salao-festa', 'Salao de Festa', 'Event hall — festive, elegant, ready for weddings and parties.')">
+                <div class="card-img card-img-fallback" aria-hidden="true"><span>SD</span><small>Salao de Festa</small></div>
                 <div class="card-content">
                     <h3 class="card-title">Salao de Festa</h3>
                     <p class="card-desc">Event hall with festive and elegant design.</p>
@@ -988,7 +1011,7 @@
             </button>
         </div>
         <div class="chat-messages" id="chatMessages">
-            <div class="message bot">Hi! 👋 I'm Evans' assistant. I can help you with info about the sites, timelines, or how the process works. How can I help you?</div>
+            <div class="message bot">Hey! 👋 I'm Evans' assistant. Want to see how a site would look for your business, or wondering about price and timing? Just ask — I keep it simple.</div>
         </div>
         <div class="chat-input">
             <input type="text" id="chatInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
@@ -1124,23 +1147,9 @@
             modalTitle.textContent = title;
             modalLink.href = sitesData[siteId].url;
             
-            // Criar galeria
-            modalGallery.innerHTML = '';
+            // Updated: previews removed - show live link only (screenshots will be refreshed after English rollout)
+            modalGallery.innerHTML = `<div style="padding:40px 20px; text-align:center; color:#888; max-width:600px;"><p style="color:#fff; font-size:1.1rem; margin-bottom:10px;">Live preview — updated English version</p><p>Screenshots are being refreshed after the English update. Tap below to open the live site in a new tab. It's the real, translated version.</p></div>`;
             modalDots.innerHTML = '';
-            
-            sitesData[siteId].previews.forEach((preview, index) => {
-                const img = document.createElement('img');
-                img.src = `previews/${siteId}/${preview}`;
-                img.alt = `${title} - Preview ${index + 1}`;
-                img.className = 'modal-img';
-                modalGallery.appendChild(img);
-                
-                // Criar dot
-                const dot = document.createElement('div');
-                dot.className = 'modal-dot' + (index === 0 ? ' active' : '');
-                dot.onclick = () => goToSlide(index);
-                modalDots.appendChild(dot);
-            });
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1214,13 +1223,13 @@
                 const lowerMsg = message.toLowerCase();
                 
                 if (lowerMsg.includes('preco') || lowerMsg.includes('valor') || lowerMsg.includes('quanto') || lowerMsg.includes('custa') || lowerMsg.includes('orcamento') || lowerMsg.includes('price') || lowerMsg.includes('cost') || lowerMsg.includes('how much') || lowerMsg.includes('quote')) {
-                    botMsg.innerHTML = 'The price of each site depends on complexity and features you need! 💰<br><br>For a custom quote, <strong>message on WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a><br><br>Evans will get back to you and build something tailored to your business! 🚀';
+                    botMsg.innerHTML = 'The price of each site depends on complexity and features you need! 💰<br><br>For a quick quote, <strong>drop me a message on WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a><br><br>Evans will get back to you and build something tailored to your business! 🚀';
                 } else if (lowerMsg.includes('prazo') || lowerMsg.includes('tempo') || lowerMsg.includes('demora') || lowerMsg.includes('rapido') || lowerMsg.includes('deadline') || lowerMsg.includes('how long') || lowerMsg.includes('timeline')) {
-                    botMsg.innerHTML = 'Delivery time varies by project! ⏱️<br><br>Simple sites can be ready in a few days, while more complex projects take a bit longer.<br><br>For the exact timeline, <strong>message on WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 💬';
+                    botMsg.innerHTML = 'Timing depends on the project! ⏱️<br><br>Simple sites can be ready in a few days, while more complex projects take a bit longer.<br><br>For the exact timeline, <strong>message on WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 💬';
                 } else if (lowerMsg.includes('contato') || lowerMsg.includes('whatsapp') || lowerMsg.includes('numero') || lowerMsg.includes('falar')) {
                     botMsg.innerHTML = 'You can talk directly to Evans on WhatsApp! 📱<br><br><a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88; font-weight: bold;">+55 21 98158-8788</a><br><br>He will help you with whatever you need! 😊';
                 } else if (lowerMsg.includes('site') || lowerMsg.includes('sites') || lowerMsg.includes('portfolio')) {
-                    botMsg.innerHTML = 'We have 27 sample sites in the portfolio! 🌐<br><br>Each one is unique and shows how your business can have a professional online presence. Click the cards to see more previews!<br><br>If you want something similar or fully custom, <strong>message on WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 🚀';
+                    botMsg.innerHTML = 'There are 27 live demos here 🌐 — each one built for a different kind of business. Click the cards to see more previews!<br><br>If you want something similar or fully custom, <strong>message on WhatsApp</strong>: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 🚀';
                 } else if (lowerMsg.includes('obrigad') || lowerMsg.includes('valeu') || lowerMsg.includes('thanks') || lowerMsg.includes('thank you')) {
                     botMsg.innerHTML = 'You\'re welcome! 😊 Happy to help!<br><br>If you need anything, just message here or on WhatsApp: <a href="https://wa.me/5521981588788" target="_blank" style="color: #00ff88;">+55 21 98158-8788</a> 💚';
                 } else if (lowerMsg.includes('oi') || lowerMsg.includes('ola') || lowerMsg.includes('hello') || lowerMsg.includes('hi') || lowerMsg.includes('hey') || lowerMsg.includes('bom dia') || lowerMsg.includes('boa tarde') || lowerMsg.includes('boa noite') || lowerMsg.includes('good morning') || lowerMsg.includes('good afternoon')) {
